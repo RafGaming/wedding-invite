@@ -98,7 +98,7 @@ body {
   background-clip: unset;
 }
 
-gold-shimmer {
+.gold-shimmer {
   background: linear-gradient(
     90deg,
     var(--gold-accent) 0%,
