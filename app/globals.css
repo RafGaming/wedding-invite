@@ -1692,3 +1692,10 @@ gold-shimmer {
     opacity: 1;
   }
 }
+
+.monogram {
+  font-size: 2.24rem;
+}
+#monogram {
+  font-size: 1.76rem;
+}
