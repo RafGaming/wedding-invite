@@ -1062,7 +1062,7 @@ gold-shimmer {
 .countdown-section {
   position: relative;
   z-index: 5;
-  padding: 80px 20px;
+  padding: 40px 20px;
   display: flex;
   justify-content: center;
   background: linear-gradient(
@@ -1091,7 +1091,7 @@ gold-shimmer {
   font-family: "Great Vibes", cursive;
   font-size: 2.5rem;
   color: var(--cream);
-  margin: 10px 0 40px;
+  margin: 10px 0 24px;
 }
 
 .countdown-grid {
@@ -1135,7 +1135,7 @@ gold-shimmer {
 }
 
 .countdown-note {
-  margin-top: 30px;
+  margin-top: 20px;
   font-family: "Josefin Sans", sans-serif;
   font-size: 0.85rem;
   letter-spacing: 2px;
