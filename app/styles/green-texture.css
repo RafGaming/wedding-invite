@@ -1,0 +1,61 @@
+:root {
+  --green-texture-url: url('/textures/green-paper.svg');
+  --green-texture-opacity: 0.10; /* tweak between 0.05 - 0.18 for desired subtlety */
+}
+
+/* Utility: add this class to any element that should receive a green texture overlay */
+.textured-green {
+  position: relative;
+  z-index: 0; /* keep element above page background */
+}
+
+.textured-green::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--green-texture-url);
+  background-repeat: repeat;
+  background-size: 200px 200px; /* tile size — tweak as needed */
+  opacity: var(--green-texture-opacity);
+  mix-blend-mode: multiply; /* try 'overlay' or 'soft-light' if you prefer */
+  z-index: 1;
+  border-radius: inherit; /* preserve rounded corners */
+}
+
+/* Apply texture to the parallax green vignette (layer1) by default */
+.parallax-bg .layer1 {
+  position: relative; /* ensure stacking context for ::before */
+}
+.parallax-bg .layer1::before {
+  content: "";
+  position: absolute;
+  inset: -20px; /* match existing inset used by .bg-layer */
+  pointer-events: none;
+  background-image: var(--green-texture-url);
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+  z-index: 0;
+  border-radius: 0; /* full-bleed vignette */
+}
+
+/* Apply texture to the sage divider (a small decorative bar) */
+.royal-divider {
+  position: relative; /* create stacking context */
+  overflow: visible;
+}
+.royal-divider::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: var(--green-texture-url);
+  background-repeat: repeat;
+  background-size: 80px 8px; /* small tile for thin bar */
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+  z-index: 0;
+  border-radius: inherit;
+}
