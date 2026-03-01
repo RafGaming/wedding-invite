@@ -1387,7 +1387,23 @@ gold-shimmer {
   );
 }
 
+.rsvp-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.rsvp-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(6px) brightness(0.3);
+}
+
 .rsvp-inner {
+  position: relative;
+  z-index: 1;
   max-width: 500px;
   width: 100%;
   text-align: center;
@@ -1476,6 +1492,77 @@ gold-shimmer {
   animation: staggerFadeUp 0.6s ease-out both;
 }
 
+.rsvp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.rsvp-label {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+.rsvp-select {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.95rem;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(91, 138, 94, 0.2);
+  border-radius: 12px;
+  color: var(--text-light);
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  appearance: none;
+  cursor: pointer;
+}
+
+.rsvp-select:focus {
+  border-color: var(--gold-accent);
+  box-shadow: 0 0 12px rgba(201, 169, 110, 0.12);
+}
+
+.rsvp-submit {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, var(--sage-medium), var(--sage-deep));
+  color: var(--cream);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.rsvp-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(91, 138, 94, 0.2);
+}
+
+.rsvp-success-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.rsvp-success-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.rsvp-success-msg {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
 /* ══════════════════════════════════════
    GUESTBOOK
    ══════════════════════════════════════ */
@@ -1526,6 +1613,132 @@ gold-shimmer {
   max-width: 400px;
   margin: 0 auto 30px;
   animation: staggerFadeUp 0.5s ease-out both;
+}
+
+.guestbook-leave-btn {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid var(--gold-accent);
+  border-radius: 8px;
+  color: var(--gold-light);
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.guestbook-leave-btn:hover {
+  background: rgba(201, 169, 110, 0.12);
+  color: var(--gold-accent);
+}
+
+.guestbook-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.guestbook-form-label {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+.guestbook-form-input,
+.guestbook-form-textarea {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.95rem;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(91, 138, 94, 0.2);
+  border-radius: 12px;
+  color: var(--text-light);
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guestbook-form-input:focus,
+.guestbook-form-textarea:focus {
+  border-color: var(--gold-accent);
+  box-shadow: 0 0 12px rgba(201, 169, 110, 0.12);
+}
+
+.guestbook-form-input::placeholder,
+.guestbook-form-textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.guestbook-form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.guestbook-form-input:disabled,
+.guestbook-form-textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.guestbook-form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.guestbook-submit-btn {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, var(--sage-medium), var(--sage-deep));
+  color: var(--cream);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.guestbook-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(91, 138, 94, 0.2);
+}
+
+.guestbook-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.guestbook-cancel-btn {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid rgba(91, 138, 94, 0.3);
+  border-radius: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.guestbook-cancel-btn:hover {
+  border-color: var(--mauve);
+  color: var(--mauve-light);
+}
+
+.guestbook-cancel-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .guestbook-grid {
