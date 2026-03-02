@@ -2063,6 +2063,8 @@ gold-shimmer {
    WEDDING IMAGES BUTTON
    ══════════════════════════════════════ */
 .wedding-images-section {
+  position: relative;
+  z-index: 5;
   text-align: center;
   padding: 40px 20px;
   background: var(--bg-dark);
