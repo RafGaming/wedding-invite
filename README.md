@@ -49,3 +49,47 @@ Place your image files in the `public/bg/` folder using the following filenames:
 - `/bg/rsvp-bg.jpg` — Background image for the RSVP section
 
 The site will still display correctly even if these images are not yet added.
+
+## 📸 Wedding Photo Upload (QR Feature)
+
+Guests can scan a QR code (printed on physical cards/paper at the wedding) to upload photos.
+
+### How It Works
+1. Print a QR code that points to `https://your-domain.com/upload`
+2. Guests scan the QR → land on the upload page → submit their name, a photo, and an optional comment
+3. Photos are stored in Supabase Storage and metadata in the database
+4. View all uploaded photos at `https://your-domain.com/gallery-wall` (linked from "Wedding Images" button on the main invitation)
+
+### Supabase Setup
+
+1. **Create the `wedding_photos` table:**
+```sql
+CREATE TABLE wedding_photos (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  uploader_name TEXT NOT NULL,
+  comment TEXT,
+  image_url TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+```
+
+2. **Create a Supabase Storage bucket** called `wedding-photos` with **public access**.
+
+3. **Set up Row Level Security (RLS):**
+```sql
+ALTER TABLE wedding_photos ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow public insert" ON wedding_photos FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow public select" ON wedding_photos FOR SELECT USING (true);
+```
+
+4. **Storage policies:** Allow public uploads to the `wedding-photos` bucket in Supabase Dashboard → Storage → Policies.
+
+### QR Code Generation
+Generate a QR code pointing to your deployed upload page URL:
+- URL: `https://your-wedding-site.vercel.app/upload`
+- Recommended generator: [QR Code Monkey](https://www.qrcode-monkey.com/) or [QR Code Generator](https://www.qr-code-generator.com/)
+- Print the QR codes on cards to distribute at the wedding
+
+### Pages
+- `/upload` — Guest photo upload page (mobile-optimized)
+- `/gallery-wall` — Full gallery of all uploaded photos (opens in new tab from main site)

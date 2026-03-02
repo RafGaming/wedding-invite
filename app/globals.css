@@ -1965,3 +1965,494 @@ gold-shimmer {
 #monogram {
   font-size: 1.76rem;
 }
+
+/* ══════════════════════════════════════
+   GALLERY GRID (replaces horizontal scroll)
+   ══════════════════════════════════════ */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.gallery-grid-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-grid-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-grid-item .gallery-img-wrap {
+  border-radius: 16px 16px 0 0;
+}
+
+.gallery-grid-item .gallery-img {
+  height: 280px;
+}
+
+.gallery-grid-item:hover .gallery-img {
+  transform: scale(1.05);
+  filter: brightness(1.08);
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ══════════════════════════════════════
+   KEN BURNS ON BACKGROUND PHOTOS
+   ══════════════════════════════════════ */
+.photo-section.visible .section-photo {
+  animation: kenBurns 20s ease-in-out infinite alternate;
+}
+
+@keyframes kenBurns {
+  0% { transform: scale(1.05); }
+  100% { transform: scale(1.12) translate(-1%, -1%); }
+}
+
+/* ── Soft edges on timeline images ── */
+.timeline-img {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-card:hover .timeline-img {
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
+}
+
+/* ══════════════════════════════════════
+   COUNTDOWN HEARTBEAT
+   ══════════════════════════════════════ */
+.countdown-heart {
+  font-size: 1.75rem;
+  color: var(--mauve);
+  display: block;
+  text-align: center;
+  margin: -20px 0 30px;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%  { transform: scale(1); }
+  14% { transform: scale(1.15); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.08); }
+  70% { transform: scale(1); }
+}
+
+/* ══════════════════════════════════════
+   WEDDING IMAGES BUTTON
+   ══════════════════════════════════════ */
+.wedding-images-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--bg-dark);
+}
+
+.wedding-images-label {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.wedding-images-btn {
+  display: inline-block;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 14px 32px;
+  background: transparent;
+  border: 1px solid var(--gold-accent);
+  border-radius: 8px;
+  color: var(--gold-light);
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.wedding-images-btn:hover {
+  background: rgba(201, 169, 110, 0.12);
+  transform: scale(1.03);
+}
+
+/* ══════════════════════════════════════
+   UPLOAD PAGE
+   ══════════════════════════════════════ */
+.upload-page {
+  min-height: 100vh;
+  background: var(--bg-dark);
+  padding: 60px 20px 80px;
+}
+
+.upload-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.upload-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.upload-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.6rem;
+  background: linear-gradient(135deg, var(--gold-accent), var(--gold-light), var(--gold-brass));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.upload-subtitle {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.upload-drop-area {
+  border: 2px dashed var(--sage);
+  border-radius: 16px;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  background: rgba(122, 158, 126, 0.04);
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.upload-drop-area:hover {
+  border-color: var(--sage-light);
+  background: rgba(122, 158, 126, 0.08);
+}
+
+.upload-camera-icon {
+  font-size: 2.5rem;
+}
+
+.upload-drop-text {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+.upload-preview-img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.upload-error {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.85rem;
+  color: var(--mauve-medium);
+  text-align: center;
+}
+
+.upload-success {
+  text-align: center;
+  padding: 40px 20px;
+  animation: staggerFadeUp 0.6s ease-out both;
+}
+
+.upload-success-icon {
+  font-size: 3rem;
+  color: var(--sage-light);
+  margin-bottom: 16px;
+}
+
+.upload-success-msg {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.upload-another-btn {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 12px 28px;
+  background: transparent;
+  border: 1px solid var(--sage-medium);
+  border-radius: 12px;
+  color: var(--sage-light);
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.upload-another-btn:hover {
+  background: var(--sage-medium);
+  color: var(--cream);
+}
+
+.upload-feed {
+  max-width: 1100px;
+  margin: 60px auto 0;
+  padding: 0 20px;
+}
+
+.upload-feed-heading {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.2rem;
+  color: var(--cream);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.upload-feed-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.upload-feed-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(91, 138, 94, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  animation: staggerFadeUp 0.6s ease-out both;
+}
+
+.upload-feed-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.upload-feed-info {
+  padding: 14px 16px;
+}
+
+.upload-feed-name {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.upload-feed-comment {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .upload-feed-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .upload-feed-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ══════════════════════════════════════
+   GALLERY WALL PAGE
+   ══════════════════════════════════════ */
+.gallery-wall-page {
+  min-height: 100vh;
+  background: var(--bg-dark);
+  padding: 40px 20px 80px;
+}
+
+.gallery-wall-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.gallery-wall-back {
+  display: inline-block;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 40px;
+  transition: color 0.3s ease;
+}
+
+.gallery-wall-back:hover {
+  color: var(--gold-light);
+}
+
+.gallery-wall-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.gallery-wall-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.gallery-wall-subtitle {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+.gallery-wall-loading,
+.gallery-wall-empty {
+  text-align: center;
+  padding: 60px 20px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.gallery-wall-upload-link {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 12px 28px;
+  border: 1px solid var(--sage-medium);
+  border-radius: 8px;
+  color: var(--sage-light);
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.gallery-wall-upload-link:hover {
+  background: var(--sage-medium);
+  color: var(--cream);
+}
+
+.gallery-wall-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.gallery-wall-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  animation: staggerFadeUp 0.6s ease-out both;
+  transition: transform 0.4s ease;
+}
+
+.gallery-wall-card:hover {
+  transform: scale(1.03);
+}
+
+.gallery-wall-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.4s ease;
+}
+
+.gallery-wall-card:hover .gallery-wall-img {
+  filter: brightness(0.7);
+}
+
+.gallery-wall-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.gallery-wall-card:hover .gallery-wall-overlay {
+  transform: translateY(0);
+}
+
+.gallery-wall-uploader {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.gallery-wall-comment {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .gallery-wall-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .gallery-wall-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-wall-title {
+    font-size: 2.2rem;
+  }
+}

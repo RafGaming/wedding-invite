@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Countdown from "./Countdown";
 import Timeline from "./Timeline";
 import Gallery from "./Gallery";
@@ -8,14 +8,6 @@ import GuestBook from "./GuestBook";
 
 export default function ScrollSections() {
   const sectionsRef = useRef([]);
-  const [details, setDetails] = useState({});
-
-  useEffect(() => {
-    fetch("/api/wedding-details")
-      .then((res) => res.ok ? res.json() : Promise.reject())
-      .then((data) => setDetails(data))
-      .catch(() => {});
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -139,41 +131,21 @@ export default function ScrollSections() {
       {/* ───── GALLERY ───── */}
       <Gallery />
 
-      {/* ───── COUNTDOWN & DETAILS ───── */}
-      <Countdown ref={addRef} />
-      <section
-        className="details-section scroll-reveal"
-        ref={addRef}
-      >
-        <div className="details-bg">
-          <img src="/bg/save-the-date-bg.jpg" alt="" className="details-bg-img" />
-        </div>
-        <div className="details-card">
-          <h2 className="gold-text details-title">Save the Date</h2>
-          <div className="details-grid">
-            <div className="detail-item">
-              <span className="detail-icon">📅</span>
-              <h3>Date</h3>
-              <p className="mauve-text">{details.wedding_date || "To Be Announced"}</p>
-            </div>
-            <div className="detail-item">
-              <span className="detail-icon">📍</span>
-              <h3>Venue</h3>
-              <p className="mauve-text">{details.venue || "To Be Announced"}</p>
-            </div>
-            <div className="detail-item">
-              <span className="detail-icon">⏰</span>
-              <h3>Time</h3>
-              <p className="mauve-text">{details.time || "To Be Announced"}</p>
-            </div>
-            <div className="detail-item">
-              <span className="detail-icon">👗</span>
-              <h3>Dress Code</h3>
-              <p className="mauve-text">{details.dress_code || "Formal / Semi-Formal"}</p>
-            </div>
-          </div>
-        </div>
+      {/* ───── WEDDING IMAGES BUTTON ───── */}
+      <section className="wedding-images-section">
+        <p className="wedding-images-label">See photos shared by our guests</p>
+        <a
+          href="/gallery-wall"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="wedding-images-btn"
+        >
+          📸 Wedding Images
+        </a>
       </section>
+
+      {/* ───── COUNTDOWN ───── */}
+      <Countdown ref={addRef} />
 
       {/* ───── RSVP FORM ───── */}
       <RSVPForm />
