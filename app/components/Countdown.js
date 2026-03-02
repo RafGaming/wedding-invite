@@ -57,7 +57,12 @@ const Countdown = forwardRef(function Countdown(props, ref) {
       <div className="countdown-inner">
         <span className="section-label gold-text">Counting Down</span>
         <h2 className="countdown-heading">Until&nbsp;&nbsp;&nbsp;&nbsp;We&nbsp;&nbsp;&nbsp;&nbsp;Say&nbsp;&nbsp;&#8220;I&nbsp;&nbsp;Do&#8221;</h2>
-        <div className="countdown-heart" aria-hidden="true">♥</div>
+
+        {/* Animated glowing divider line */}
+        <div className="countdown-divider" aria-hidden="true">
+          <span className="countdown-divider-diamond">◆</span>
+        </div>
+
         <div className="countdown-grid">
           {units.map(({ label, value }) => (
             <div key={label} className="countdown-unit">
