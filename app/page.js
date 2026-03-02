@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Envelope from "./components/Envelope";
 import Sparkles from "./components/Sparkles";
 import Petals from "./components/Petals";
-import CursorTrail from "./components/CursorTrail";
 import MusicPlayer from "./components/MusicPlayer";
 import ScrollSections from "./components/ScrollSections";
 import Preloader from "./components/Preloader";
@@ -60,7 +59,6 @@ export default function Home() {
       {/* ambient effects */}
       <Sparkles />
       <Petals />
-      <CursorTrail />
       <MusicPlayer />
 
       {/* hero section — floating envelope */}

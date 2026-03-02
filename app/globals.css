@@ -839,29 +839,6 @@ gold-shimmer {
   }
 }
 
-.cursor-particle {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: var(--sage);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  animation: cursorFade 0.7s ease-out forwards;
-  box-shadow: 0 0 6px rgba(122, 158, 126, 0.6);
-}
-
-@keyframes cursorFade {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.2) translateY(-15px);
-  }
-}
-
 /* ══════════════════════════════════════
    RESPONSIVE
    ══════════════════════════════════════ */
