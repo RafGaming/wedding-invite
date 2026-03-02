@@ -56,7 +56,7 @@ const Countdown = forwardRef(function Countdown(props, ref) {
     <section className="countdown-section scroll-reveal" ref={ref}>
       <div className="countdown-inner">
         <span className="section-label gold-text">Counting Down</span>
-        <h2 className="countdown-heading">Until We Say&nbsp;&#8220;I&nbsp;Do&#8221;</h2>
+        <h2 className="countdown-heading">Until   We   Say&nbsp;&#8220;I &nbsp; Do&#8221;</h2>
         <div className="countdown-grid">
           {units.map(({ label, value }) => (
             <div key={label} className="countdown-unit">
