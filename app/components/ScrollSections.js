@@ -117,9 +117,6 @@ function QRCodeSection() {
             </svg>
           </div>
           <p className="qr-point-text">Point your camera here</p>
-          <p className="qr-url-note">
-            Update QR code with your deployed URL + <code>/upload</code>
-          </p>
         </div>
         <p className="qr-hint">
           📱 Guests can also visit <strong>/upload</strong> directly on their phones

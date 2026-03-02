@@ -76,6 +76,7 @@ export async function POST(request) {
 
     return NextResponse.json(data, { status: 201 });
   } catch (err) {
+    console.error("Wedding photos upload error:", err);
     return NextResponse.json({ error: "Failed to process upload" }, { status: 500 });
   }
 }

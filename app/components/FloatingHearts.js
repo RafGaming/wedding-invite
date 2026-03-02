@@ -2,6 +2,10 @@
 import { useEffect, useRef } from "react";
 
 const HEART_SYMBOLS = ["❤️", "💕", "💗", "💓", "🌸", "💖"];
+// Max concurrent hearts — limited for performance on lower-end devices
+const MAX_HEARTS = 24;
+// Interval in ms between new heart spawns
+const SPAWN_INTERVAL_MS = 1800;
 
 export default function FloatingHearts() {
   const containerRef = useRef(null);
@@ -38,13 +42,13 @@ export default function FloatingHearts() {
       container.appendChild(el);
       hearts.push(el);
 
-      if (hearts.length > 24) {
+      if (hearts.length > MAX_HEARTS) {
         const old = hearts.shift();
         old.remove();
       }
     }
 
-    const interval = setInterval(createHeart, 1800);
+    const interval = setInterval(createHeart, SPAWN_INTERVAL_MS);
     return () => {
       clearInterval(interval);
       hearts.forEach((h) => h.remove());

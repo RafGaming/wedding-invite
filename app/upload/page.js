@@ -24,8 +24,9 @@ export default function UploadPage() {
         const data = await res.json();
         setPhotos(Array.isArray(data) ? data : []);
       }
-    } catch {
-      // silently fail
+    } catch (err) {
+      // Photo feed is non-critical — fail silently so the upload form still works
+      console.error("Failed to fetch photos:", err);
     }
   }
 
@@ -51,6 +52,9 @@ export default function UploadPage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (!name.trim()) { setError("Please enter your name."); return; }
+    if (!image) { setError("Please select a photo to share."); return; }
+
     if (!name.trim()) { setError("Please enter your name."); return; }
     if (!image) { setError("Please select a photo to share."); return; }
 
