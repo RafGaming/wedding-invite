@@ -44,7 +44,7 @@ export default function Timeline() {
           }
         });
       },
-      { threshold: 0.25 }
+      { threshold: 0.2 }
     );
 
     itemRefs.current.forEach((el) => {
@@ -61,28 +61,29 @@ export default function Timeline() {
   };
 
   return (
-    <section className="timeline-section scroll-reveal">
+    <section className="timeline-section" id="story">
       <div className="timeline-inner">
         <span className="section-label gold-text">Our Journey</span>
         <h2 className="timeline-heading">Love Story</h2>
-        <div className="timeline-line-wrap">
-          <div className="timeline-line" />
-          {MILESTONES.map((m, i) => (
-            <div
-              key={m.title}
-              className={`timeline-item ${i % 2 === 0 ? "timeline-left" : "timeline-right"}`}
-              ref={addRef}
-            >
-              <div className="timeline-node" />
-              <div className="timeline-card">
-                <img src={m.image} alt={m.title} className="timeline-img" />
-                <span className="timeline-date accent-text">{m.date}</span>
-                <h3 className="timeline-title">{m.title}</h3>
-                <p className="timeline-desc">{m.description}</p>
-              </div>
+      </div>
+      <div className="chapter-list">
+        {MILESTONES.map((m, i) => (
+          <div
+            key={m.title}
+            className={`chapter-band ${i % 2 === 0 ? "chapter-ltr" : "chapter-rtl"}`}
+            ref={addRef}
+          >
+            <span className="chapter-num accent-text">0{i + 1}</span>
+            <div className="chapter-photo">
+              <img src={m.image} alt={m.title} className="chapter-img" loading="lazy" />
             </div>
-          ))}
-        </div>
+            <div className="chapter-text">
+              <span className="chapter-date gold-text">{m.date}</span>
+              <h3 className="chapter-title">{m.title}</h3>
+              <p className="chapter-desc">{m.description}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

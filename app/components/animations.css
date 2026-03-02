@@ -23,3 +23,20 @@
 /* ORNAMENTAL CORNERS */ .corner { position: absolute; width: 38px; height: 38px; border-color: var(--sage-medium); border-style: solid; opacity: 0.6; }
 
 .tl { top: -20px; left: -20px; border-width: 2px 0 0 2px; border-top-left-radius: 8px; } .tr { top: -20px; right: -20px; border-width: 2px 2px 0 0; border-top-right-radius: 8px; } .bl { bottom: -20px; left: -20px; border-width: 0 0 2px 2px; border-bottom-left-radius: 8px; } .br { bottom: -20px; right: -20px; border-width: 0 2px 2px 0; border-bottom-right-radius: 8px; }
+
+/* ── Magazine flip-number animation ── */
+@keyframes flipIn {
+  from {
+    opacity: 0;
+    transform: translateY(-14px) scaleY(0.65);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+.flip-in {
+  display: inline-block;
+  animation: flipIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
