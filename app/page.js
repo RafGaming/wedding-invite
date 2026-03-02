@@ -6,7 +6,6 @@ import Petals from "./components/Petals";
 import MusicPlayer from "./components/MusicPlayer";
 import ScrollSections from "./components/ScrollSections";
 import Preloader from "./components/Preloader";
-import CustomCursor from "./components/CustomCursor";
 
 export default function Home() {
   const [isOpened, setIsOpened] = useState(false);
@@ -48,7 +47,6 @@ export default function Home() {
   return (
     <main>
       <Preloader onDone={() => setPreloaderDone(true)} />
-      <CustomCursor />
 
       {/* cinematic parallax background */}
       <div className="parallax-bg">
