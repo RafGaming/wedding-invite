@@ -1,0 +1,100 @@
+.wrapper {
+  width: 760px;
+  max-width: 95vw;
+  margin: 24px auto;
+  position: relative;
+  perspective: 1400px;
+}
+
+.body {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10;
+  position: relative;
+}
+
+/* flap sits on top of body and rotates around top edge */
+.flap {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 55%;
+  transform-origin: 50% 0%;
+  transform: rotateX(0deg);
+  transition: transform 900ms cubic-bezier(.18,.9,.3,1), box-shadow 350ms;
+  z-index: 40;
+  pointer-events: none;
+  backface-visibility: hidden;
+}
+
+.flapOpen {
+  transform: rotateX(-160deg);
+}
+
+.flapImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.seal {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  z-index: 60;
+  transition: transform 260ms ease, opacity 600ms ease;
+}
+
+.seal:active { transform: translate(-50%, -50%) scale(0.96); }
+
+.sealGone {
+  transform: translate(-50%, -80%) scale(0.8);
+  opacity: 0;
+  transition: transform 500ms cubic-bezier(.2,.9,.3,1), opacity 400ms ease;
+  pointer-events: none;
+}
+
+.sealImg {
+  width: 120px;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,0.35));
+}
+
+/* inner card that reveals */
+.cardWrap {
+  position: absolute;
+  left: 50%;
+  top: 62%;
+  transform: translate(-50%, 40px);
+  opacity: 0;
+  z-index: 20;
+  transition: transform 700ms cubic-bezier(.2,.85,.25,1), opacity 600ms;
+  pointer-events: none;
+}
+
+.cardVisible {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cardInner {
+  width: 84%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flap, .seal, .cardWrap { transition: none; }
+}

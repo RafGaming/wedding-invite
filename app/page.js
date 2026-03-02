@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import Envelope from "./components/Envelope";
+import EnvelopeOpen from "./components/EnvelopeOpen";
 import Sparkles from "./components/Sparkles";
 import Petals from "./components/Petals";
 import CursorTrail from "./components/CursorTrail";
@@ -69,7 +69,7 @@ export default function Home() {
           <img src="/bg.jpg" alt="Wedding background" className="section-photo" />
           <div className="photo-blur-overlay"></div>
         </div>
-        <Envelope onOpen={() => setIsOpened(true)} ready={preloaderDone} />
+        <EnvelopeOpen onOpen={() => setIsOpened(true)} ready={preloaderDone} />
       </section>
 
       {/* scrollable bride & groom sections — rendered only after envelope is opened */}
