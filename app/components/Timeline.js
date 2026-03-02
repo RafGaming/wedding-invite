@@ -73,12 +73,18 @@ export default function Timeline() {
               className={`timeline-item ${i % 2 === 0 ? "timeline-left" : "timeline-right"}`}
               ref={addRef}
             >
-              <div className="timeline-node" />
-              <div className="timeline-card">
-                <img src={m.image} alt={m.title} className="timeline-img" />
-                <span className="timeline-date accent-text">{m.date}</span>
-                <h3 className="timeline-title">{m.title}</h3>
-                <p className="timeline-desc">{m.description}</p>
+              <div className="timeline-node">
+                <span className="timeline-node-heart">♥</span>
+              </div>
+              <div className="timeline-card timeline-card--glass">
+                <div className="timeline-img-wrap">
+                  <img src={m.image} alt={m.title} className="timeline-img" />
+                </div>
+                <div className="timeline-card-body">
+                  <span className="timeline-date accent-text">{m.date}</span>
+                  <h3 className="timeline-title">{m.title}</h3>
+                  <p className="timeline-desc">{m.description}</p>
+                </div>
               </div>
             </div>
           ))}

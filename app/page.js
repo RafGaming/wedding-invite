@@ -8,6 +8,7 @@ import MusicPlayer from "./components/MusicPlayer";
 import ScrollSections from "./components/ScrollSections";
 import Preloader from "./components/Preloader";
 import CustomCursor from "./components/CustomCursor";
+import FloatingHearts from "./components/FloatingHearts";
 
 export default function Home() {
   const [isOpened, setIsOpened] = useState(false);
@@ -60,6 +61,7 @@ export default function Home() {
       {/* ambient effects */}
       <Sparkles />
       <Petals />
+      <FloatingHearts />
       <CursorTrail />
       <MusicPlayer />
 
